@@ -32,6 +32,8 @@ export default function RootLayout({
               <a href="/" className="hover:underline">ホーム</a>
               <a href="/ex3-2/about" className="hover:underline">アバウト</a>
               <a href="/ex3-2/profile/setting" className="hover:underline">設定</a>
+              {/* 演習 3-3 データ受け渡しできるコンポーネントを作成する */}
+              <a href="/ex3-3" className="hover:underline">商品一覧</a>
             </nav>
           </div>
         </header>
