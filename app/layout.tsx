@@ -34,6 +34,8 @@ export default function RootLayout({
               <a href="/ex3-2/profile/setting" className="hover:underline">設定</a>
               {/* 演習 3-3 データ受け渡しできるコンポーネントを作成する */}
               <a href="/ex3-3" className="hover:underline">商品一覧</a>
+              {/* 演習 4-1 計算機を作成する(加算機能のみ) */}
+              <a href="/ex4-1" className="hover:underline">計算機</a>
             </nav>
           </div>
         </header>
@@ -49,7 +51,6 @@ export default function RootLayout({
           © 2026 Fullness, Inc. All rights reserved.
         </footer>
         {/* === ここまで：フッター === */}
-
       </body>
     </html>
   );
