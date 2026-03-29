@@ -6,6 +6,11 @@
 // app/layout.tsx
 // グローバルなCSSを読み込む（Tailwind CSSなどを適用するため）
 import "./globals.css";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
 
 // metadata はページのタイトルなどを設定するNext.jsの機能です（今回はそのまま使用します）
 export const metadata = {
@@ -21,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja">
+    <html lang="ja" className={cn("font-sans", geist.variable)}>
       <body className="flex flex-col min-h-screen">
         
         {/* === ここから：全ページ共通のヘッダー === */}
