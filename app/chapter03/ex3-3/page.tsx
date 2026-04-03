@@ -2,7 +2,7 @@
  * 演習 3-3 データ受け渡しできるコンポーネントを作成する
  * 商品一覧ページ
  */
-import ProductCard from "@/components/ex3-3/ProductCard";
+import ProductCard from "@/components/chapter03/ex3-3/ProductCard";
 
 export default function ProductListPage() {
   return (

@@ -2,9 +2,9 @@
 /**
  * 演習4-2 計算の種類をプルダウンで選択可能にする
  */
-import ActionButton from "@/components/ex4-1/button/ActionButton";
-import NumberInput from "@/components/ex4-1/input/NumberInput";
-import NumberSelectInput from "@/components/ex4-2/select/NumberSelectInput";
+import ActionButton from "@/components/chapter04/ex4-1/button/ActionButton";
+import NumberInput from "@/components/chapter04/ex4-1/input/NumberInput";
+import NumberSelectInput from "@/components/chapter04/ex4-2/select/NumberSelectInput";
 import { useState } from "react";
 
 export default function CalculatorPage() {

@@ -4,8 +4,8 @@
  * 演習 4-1 計算機を作成する(加算機能のみ)
  * 計算ページ
  */
-import ActionButton from "@/components/ex4-1/button/ActionButton";
-import NumberInput from "@/components/ex4-1/input/NumberInput";
+import ActionButton from "@/components/chapter04/ex4-1/button/ActionButton";
+import NumberInput from "@/components/chapter04/ex4-1/input/NumberInput";
 import { useState } from "react";
 
 export default function CalculatorPage() {

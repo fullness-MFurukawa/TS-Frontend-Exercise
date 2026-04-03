@@ -30,14 +30,14 @@ export default function BasicLayout({
             <nav className="mt-2 text-sm flex flex-wrap gap-4">
                 {/* 💡 Linkコンポーネントを使う方がNext.js推奨ですが、<a>タグでも動作する */}
                 <a href="/" className="hover:underline">ホーム</a>
-                <a href="/ex3-2/about" className="hover:underline">アバウト</a>
-                <a href="/ex3-2/profile/setting" className="hover:underline">設定</a>
+                <a href="/chapter03/ex3-2/about" className="hover:underline">アバウト</a>
+                <a href="/chapter03/ex3-2/profile/setting" className="hover:underline">設定</a>
                 {/* 演習 3-3 データ受け渡しできるコンポーネントを作成する */}
-                <a href="/ex3-3" className="hover:underline">商品一覧</a>
+                <a href="/chapter03/ex3-3" className="hover:underline">商品一覧</a>
                 {/* 演習 4-1 計算機を作成する(加算機能のみ) */}
-                <a href="/ex4-1" className="hover:underline">計算機</a>
+                <a href="/chapter04/ex4-1" className="hover:underline">計算機</a>
                 {/* 演習 4-2 計算の種類をプルダウンで選択可能にする */}
-                <a href="/ex4-2" className="hover:underline">計算機(プルダウン)</a>
+                <a href="/chapter04/ex4-2" className="hover:underline">計算機(プルダウン)</a>
             </nav>
           </div>
         </header>
