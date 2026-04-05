@@ -1,0 +1,14 @@
+import { Product } from "@/models/Product";
+
+/**
+ * 演習 6-2 モックを使ってInversifyJSを利用する
+ * 商品キーワード検索サービスインターフェイス
+ */
+export interface ISearchProductService {
+    /**
+     * 商品検索を実行する
+     * @param keyword 検索キーワード
+     * @returns 検索結果の商品のリスト
+     */
+    execute(keyword: string): Promise<Product[]>;
+}
