@@ -6,7 +6,7 @@ import { MockProductRepository } from "@/infrastructures/MockProductRepository";
 import { SearchProductService } from "@/services/SearchProductService";
 
 /**
- * 演習 6-2 モックを使ってInversifyJSを利用する
+ * 演習 6-2 データアクセスとサービスを実装する
  * DIコンテナの初期化と依存関係の登録
  */
 const container = new Container();

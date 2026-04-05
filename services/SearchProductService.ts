@@ -1,12 +1,12 @@
-/**
- * 演習 6-2 モックを使ってInversifyJSを利用する
- * 商品キーワード検索サービスインターフェイスの実装
- */
 import { injectable, inject } from "inversify";
 import type { ISearchProductService } from "../interfaces/ISearchProductService";
 import type { IProductRepository } from "../interfaces/IProductRepository";
 import type { Product } from "@/models/Product";
 import { TYPES } from "@/di/types";
+/**
+ * 演習 6-2 データアクセスとサービスを実装する
+ * 商品キーワード検索サービスインターフェイスの実装
+ */
 @injectable()
 export class SearchProductService implements ISearchProductService {
     
@@ -17,7 +17,6 @@ export class SearchProductService implements ISearchProductService {
     constructor(
         @inject(TYPES.IProductRepository) private productRepository: IProductRepository
     ) {}
-
   
     /**
      * 商品検索を実行する

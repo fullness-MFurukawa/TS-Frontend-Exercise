@@ -2,7 +2,7 @@
 import { ProductCategory } from "./ProductCategory";
 import { ProductStock } from "./ProductStock";
 /**
- * 演習 6-2 モックを使ってInversifyJSを利用する
+ * 演習 6-2 データアクセスとサービスを実装する
  * 商品インターフェイス
  */
 export interface Product {

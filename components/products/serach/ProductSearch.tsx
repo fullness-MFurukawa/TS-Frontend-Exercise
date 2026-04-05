@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -13,12 +12,19 @@ import {
 } from "@/components/ui/table";
 import { useSearchProduct } from "@/services/useSearchProduct";
 
+/**
+ * 演習 6-3 Reactコンポーネントを実装してUIを確認する
+ * ユーザーからの入力を受け付け、カスタムフック経由で検索処理を呼び出す
+ */
 export const ProductSearch = () => {
 
+    // 検索ボックスに入力されたキーワード文字列を保持するローカルState
     const [keyword, setKeyword] = useState<string>("");
+    // カスタムフックから検索結果(products)、ローディング状態(isLoading)、検索実行関数(search)を取得する
     const { products, isLoading, search } = useSearchProduct();
-
+    // 検索ボタンがクリックイベントハンドラ
     const handleSearchClick = () => {
+        // 入力されているキーワードを引数に渡し、実際の検索処理(ユースケース)を実行する
         search(keyword);
     };
 

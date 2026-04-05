@@ -1,13 +1,8 @@
-/**
- * 演習 6-2 モックを使ってInversifyJSを利用する
- * 商品リポジトリインターフェースの実装(モック)
- */
 import { injectable } from "inversify";
 import { IProductRepository } from "../interfaces/IProductRepository";
 import { Product } from "../models/Product"; 
-
 /**
- * 演習 6-2 モックを使ってInversifyJSを利用する
+ * 演習 6-2 データアクセスとサービスを実装する
  * 商品リポジトリの実装(モック)
  */
 @injectable()
@@ -41,20 +36,18 @@ export class MockProductRepository implements IProductRepository {
     /**
      * 指定したキーワードで商品を検索して取得する
      * @param keyword 検索キーワード
-     * @returns 検索にヒットした商品のリスト（非同期）
+     * @returns 検索にヒットした商品のリスト(非同期)
      */
     public async searchKeyword(keyword: string): Promise<Product[]> {
         // キーワードが空の場合は、全件を返す
         if (!keyword) {
             return this.mockProducts;
         }
-
-        // キーワードが商品名(name)に含まれているものをフィルタリング
+        // キーワードが商品名(name)に含まれているものをフィルタリングする
         const filteredProducts = this.mockProducts.filter(product =>
             product.name.includes(keyword)
         );
-
-        // asyncメソッドなので、自動的にPromiseでラップされて返却されます
+        // asyncメソッドなので、自動的にPromiseでラップされて返却される
         return filteredProducts;
     }
 }

@@ -1,7 +1,6 @@
 import { Product } from "@/models/Product";
-
 /**
- * 演習 6-2 モックを使ってInversifyJSを利用する
+ * 演習 6-2 データアクセスとサービスを実装する
  * 商品キーワード検索サービスインターフェイス
  */
 export interface ISearchProductService {

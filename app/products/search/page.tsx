@@ -1,6 +1,6 @@
 import { ProductSearch } from "@/components/products/serach/ProductSearch";
-
 /**
+ * 演習 6-3 Reactコンポーネントを実装してUIを確認する
  * 商品キーワード検索ページ
  * URL: /products/search
  */
