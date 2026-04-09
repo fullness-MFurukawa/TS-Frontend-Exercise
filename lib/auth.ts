@@ -16,26 +16,32 @@ export const authOptions: NextAuthOptions = {
 
       // 認証ロジックの実装
       async authorize(credentials) {
-        // バックエンドAPIへ認証リクエストを送信
-        const res = await fetch("https://74.226.194.15/api/auth/login", {
-          method: "POST",
-          body: JSON.stringify({
-            usernameOrEmail: credentials?.usernameOrEmail, // APIの仕様に合わせる
-            password: credentials?.password,
-          }),
-          headers: { "Content-Type": "application/json" },
-        });
+        try{
+          // バックエンドAPIへ認証リクエストを送信
+          const res = await fetch("http://74.226.194.15/api/auth/login", {
+            method: "POST",
+            // APIの仕様に合わせる
+            body: JSON.stringify({
+              usernameOrEmail: credentials?.usernameOrEmail, 
+              password: credentials?.password,
+            }),
+            headers: { "Content-Type": "application/json" },
+          });
 
-        const token = await res.json();
+          const token = await res.json();
 
-        // 認証成功(トークンが含まれている)ならユーザーオブジェクトを返す
-        if (res.ok && token) {
-          return token;
+          // 認証成功(トークンが含まれている)ならユーザーオブジェクトを返す
+          if (res.ok && token) {
+            return token;
+         }
+          // 認証失敗
+          return null;
+        }catch(error){
+          console.error("★★★ バックエンドAPIとの通信エラー詳細 ★★★", error);
+          return null; // 認証失敗として扱う
         }
-        // 認証失敗
-        return null;
       }
-    })
+    }),
   ],
   // ... (この後に callbacks の設定が続く)
   /**

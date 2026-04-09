@@ -21,7 +21,7 @@ export default function MenuPage() {
           </CardHeader>
           <CardContent>
             <Button asChild className="w-full">
-              <Link href="/login">ログイン画面へ</Link>
+              <Link href="/api/auth/login">ログイン画面へ</Link>
             </Button>
           </CardContent>
         </Card>

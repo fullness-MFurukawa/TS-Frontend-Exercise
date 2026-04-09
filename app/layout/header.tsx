@@ -28,7 +28,7 @@ export default function Header() {
             {/* メニュー1：ログイン */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={`${navigationMenuTriggerStyle()} text-green-900 bg-transparent hover:bg-green-200`}>
-                <Link href="/login">ログイン</Link>
+                <Link href="/api/auth/login">ログイン</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
 
