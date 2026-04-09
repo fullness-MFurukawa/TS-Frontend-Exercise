@@ -1,15 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
+
+/**
+ * 演習 7-4 ログアウトUIを作成し、ログイン可能にする
+ * ログインフォームコンポーネント
+ */
 export const Login = () => {
+  const router = useRouter();
   // フォームの入力値を保持するローカルState
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
+  const [errorMessage, setErrorMessage] = useState("");
   // ログイン処理中のローディング状態を管理するState(ボタンの連打防止)
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,12 +25,21 @@ export const Login = () => {
     e.preventDefault(); // フォームのデフォルトの送信動作(ページリロード)を防ぐ
     setIsLoading(true); // ローディング状態を開始(ボタンを「ログイン中...」にする)    
     // NextAuthのsignIn関数()で認証プロバイダを呼び出す
-    await signIn("credentials", {
+    const res = await signIn("credentials", {
       usernameOrEmail: username, // 画面で入力されたユーザー名(またはメールアドレス)
       password: password,        // 画面で入力されたパスワード
-      redirect: true,            // 処理完了後の自動リダイレクトを有効化
+      redirect: false,           // 処理完了後の自動リダイレクトを無効化
       callbackUrl: "/",          // ログイン成功時のリダイレクト先パス(トップページ)を指定
     });
+    if (res?.error) {
+      // 失敗時：エラーメッセージをセットしてローディングを解除
+      setErrorMessage("ユーザー名またはパスワードが異なります。");
+      setIsLoading(false);
+    } else if (res?.ok) {
+      // 成功時：トップページへ遷移し、ヘッダー等の状態を最新にする
+      router.push("/");
+      router.refresh(); 
+    }
   };
 
   return (
@@ -31,6 +47,12 @@ export const Login = () => {
       <h2 className="text-2xl font-bold text-foreground mb-6 text-center border-b pb-4">
         ログイン
       </h2>
+      {/* エラーメッセージの表示エリア */}
+      {errorMessage && (
+        <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md text-sm text-center font-medium">
+          {errorMessage}
+        </div>
+      )}
       <form onSubmit={handleSubmit} className="flex flex-col gap-6">
         
         {/* ユーザー名入力エリア */}
@@ -47,7 +69,7 @@ export const Login = () => {
             type="text" 
             value={username} 
             onChange={(e) => setUsername(e.target.value)} 
-            placeholder="yamada"
+            placeholder="xxxxx"
             required
           />
         </div>

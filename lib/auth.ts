@@ -43,7 +43,9 @@ export const authOptions: NextAuthOptions = {
       }
     }),
   ],
-  // ... (この後に callbacks の設定が続く)
+  pages: {
+    signIn: '/login', // ログイン画面は自作のものを使用するため、NextAuthのデフォルトUIは無効化
+  },
   /**
    * 演習 7-3 取得したJWTをアプリケーション全体で利用可能にする
    */
