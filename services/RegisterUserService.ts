@@ -2,7 +2,7 @@ import { injectable, inject } from "inversify";
 import { IRegisterUserService } from "@/interfaces/IRegisterUserService";
 import { User } from "@/models/User";
 import type { IUserRepository } from "@/interfaces/IUserRepository";
-
+import { TYPES } from "@/di/types";
 /**
  * 演習8-3 Serviceの実装とDIコンテナへの登録
  * ユーザー登録サービス実装クラス
@@ -15,7 +15,7 @@ export class RegisterUserService implements IRegisterUserService {
      * @param userRepository UserRepository のインスタンスを注入する
      */
     constructor(
-        @inject("IUserRepository") userRepository: IUserRepository
+        @inject(TYPES.IUserRepository) userRepository: IUserRepository
     ) {
         this.userRepository = userRepository;
     }
