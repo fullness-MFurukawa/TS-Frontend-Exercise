@@ -4,7 +4,7 @@ import { injectable } from "inversify";
 import { getSession } from "next-auth/react";
 
 /**
- * 演習8-2 ユーザーリポジトリを実装する
+ * 演習8-3 ユーザーリポジトリを実装する
  * ユーザーリポジトリ実装クラス
  */
 @injectable() // DIコンテナの管理対象とするためのデコレータ
@@ -76,9 +76,6 @@ export class UserRepository implements IUserRepository {
             },
             body: JSON.stringify(user) // UserオブジェクトをJSON文字列に変換して送信する
         });
-
-        console.log("★APIのステータスコード:", response.status);
-        // ▼ この1行を追加して、200の正体を暴く！
         console.log("★レスポンスの中身:", await response.clone().text());
         switch (response.status) {
             case 200:

@@ -4,7 +4,7 @@ import { User } from "@/models/User";
 import type { IUserRepository } from "@/interfaces/IUserRepository";
 import { TYPES } from "@/di/types";
 /**
- * 演習8-3 Serviceの実装とDIコンテナへの登録
+ * 演習8-4 Serviceの実装とDIコンテナへの登録
  * ユーザー登録サービス実装クラス
  */
 @injectable()

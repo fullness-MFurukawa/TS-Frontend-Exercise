@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 /**
- * 演習8-5 画面のコンポーネントとページを作成し、動作確認する
+ * 演習8-6 画面のコンポーネントとページを作成し、動作確認する
  * ユーザー登録画面のコンポーネント
  */
 export const RegisterUser = () => {
@@ -34,7 +34,7 @@ export const RegisterUser = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-6 text-center">ユーザー登録</h2>
             
             {/* エラーメッセージの表示 */}

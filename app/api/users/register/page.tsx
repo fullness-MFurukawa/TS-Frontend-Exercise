@@ -1,6 +1,6 @@
 import { RegisterUser } from "@/components/api/users/register/RegisterUser";
 /**
- * 演習8-5 画面のコンポーネントとページを作成し、動作確認する
+ * 演習8-6 画面のコンポーネントとページを作成し、動作確認する
  * ユーザー登録ページ
  * URL: /api/users/register
  */

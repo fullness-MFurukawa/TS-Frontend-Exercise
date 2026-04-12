@@ -1,6 +1,6 @@
 import { User } from "@/models/User";
 /**
- * 演習8-1 ユーザー登録用のモデルとインターフェイスを作成する
+ * 演習8-2 ユーザー登録用のモデルとインターフェイスを作成する
  * ユーザーリポジトリインターフェース
  */
 export interface IUserRepository {

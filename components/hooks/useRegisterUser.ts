@@ -5,7 +5,7 @@ import { User } from "@/models/User";
 import { useState } from "react";
 
 /**
- * 演習8-4 ユーザー登録用のCustom Hooksを作成する
+ * 演習8-5 ユーザー登録用のCustom Hooksを作成する
  * ユーザー登録のState(状態)と操作を提供するカスタムフック
  */
 export const useRegisterUser = () => {
