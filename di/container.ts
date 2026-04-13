@@ -2,12 +2,12 @@ import { IProductRepository } from "@/interfaces/IProductRepository";
 import { ISearchProductService } from "@/interfaces/ISearchProductService";
 import { Container } from "inversify";
 import { TYPES } from "./types";
-import { MockProductRepository } from "@/infrastructures/MockProductRepository";
 import { SearchProductService } from "@/services/SearchProductService";
 import { IRegisterUserService } from "@/interfaces/IRegisterUserService";
 import { RegisterUserService } from "@/services/RegisterUserService";
 import { IUserRepository } from "@/interfaces/IUserRepository";
 import { UserRepository } from "@/infrastructures/UserRepository";
+import { ProductRepository } from "@/infrastructures/ProductRepository";
 
 /**
  * 演習 6-2 データアクセスとサービスを実装する
@@ -18,7 +18,12 @@ const container = new Container();
 // バインディング（登録）設定
 // ---------------------------------------------------------
 // リポジトリの登録(モック版を紐付ける)
-container.bind<IProductRepository>(TYPES.IProductRepository).to(MockProductRepository);
+//container.bind<IProductRepository>(TYPES.IProductRepository).to(MockProductRepository);
+
+/**
+ * 演習8-7 バックエンドにアクセスするリポジトリを実装して切り替える
+ */
+container.bind<IProductRepository>(TYPES.IProductRepository).to(ProductRepository);
 // サービス(ユースケース)の登録
 container.bind<ISearchProductService>(TYPES.ISearchProductService).to(SearchProductService);
 /**

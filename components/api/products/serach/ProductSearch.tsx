@@ -10,7 +10,8 @@
     TableHeader,
     TableRow,
     } from "@/components/ui/table";
-    import { useSearchProduct } from "@/services/useSearchProduct";
+    import { useSearchProduct } from "@/components/hooks/useSearchProduct";
+    import { AlertCircle } from "lucide-react";
 
     /**
      * 演習 6-3 Reactコンポーネントを実装してUIを確認する
@@ -21,7 +22,8 @@
         // 検索ボックスに入力されたキーワード文字列を保持するローカルState
         const [keyword, setKeyword] = useState<string>("");
         // カスタムフックから検索結果(products)、ローディング状態(isLoading)、検索実行関数(search)を取得する
-        const { products, isLoading, search } = useSearchProduct();
+        // カスタムフックからエラー状態(error)も取得するように変更
+        const { products, isLoading, error, search } = useSearchProduct();
         // 検索ボタンがクリックイベントハンドラ
         const handleSearchClick = () => {
             // 入力されているキーワードを引数に渡し、実際の検索処理(ユースケース)を実行する
@@ -34,7 +36,7 @@
         return (
             <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm border border-border">
                 <h2 className="text-2xl font-bold text-foreground mb-6 text-center border-b pb-4">
-                    商品検索 (DIコンテナ確認)
+                    商品キーワード検索
                 </h2>
                 
                 {/* 検索入力エリア */}
@@ -54,6 +56,15 @@
                         {isLoading ? "検索中..." : "検索"}
                     </Button>
                 </div>
+
+                {/* エラーメッセージを表示する */}
+                {error && (
+                        <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-600 rounded-md flex items-center gap-2 animate-in fade-in slide-in-from-top-1">
+                        <AlertCircle className="h-5 w-5" />
+                        <span className="font-medium">{error}</span>
+                    </div>
+                )}
+                {/* エラーメッセージを表示する */}
 
                 {/* 検索結果の表示エリア */}
                 <div>
