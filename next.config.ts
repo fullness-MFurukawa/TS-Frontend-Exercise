@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
-
+// アナライザーをインポート
+import withBundleAnalyzer from "@next/bundle-analyzer";
 /**
  * 演習8-1 APIプロキシ(BFF)の設定を追加する
  * Next.js プロジェクトの設定ファイル
@@ -35,4 +36,11 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// アナライザーの設定（環境変数 ANALYZE が 'true' の時だけ有効化）
+const withAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+// 既存の設定をアナライザーでラップしてエクスポート
+export default withAnalyzer(nextConfig);
+// 削除するか、コメントにする
+// export default nextConfig;

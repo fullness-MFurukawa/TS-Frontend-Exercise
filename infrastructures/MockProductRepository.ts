@@ -1,12 +1,14 @@
 import { injectable } from "inversify";
 import { IProductRepository } from "../interfaces/IProductRepository";
 import { Product } from "../models/Product"; 
+import { ProductRegistration } from "@/models/ProductRegistration";
 /**
  * 演習 6-2 データアクセスとサービスを実装する
  * 商品リポジトリの実装(モック)
  */
 @injectable()
 export class MockProductRepository implements IProductRepository {
+   
     
     // テスト用のダミーデータ（モックデータ）を準備
     private readonly mockProducts: Product[] = [
@@ -49,5 +51,12 @@ export class MockProductRepository implements IProductRepository {
         );
         // asyncメソッドなので、自動的にPromiseでラップされて返却される
         return filteredProducts;
+    }
+
+    public async existsByName(name: string): Promise<void> {
+        throw new Error("Method not implemented.");
+    }
+    public async register(product: ProductRegistration): Promise<Product> {
+        throw new Error("Method not implemented.");
     }
 }
