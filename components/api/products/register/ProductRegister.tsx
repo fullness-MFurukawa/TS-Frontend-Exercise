@@ -19,7 +19,7 @@ import { useRouter } from "next/navigation";
  * 演習8-12 商品登録画面コンポーネントの実装と動作確認
  * 商品登録画面のUIコンポーネント
  */
-export const ProductRegisterPage = () => {
+export const ProductRegister = () => {
     const router = useRouter();
     
     // カスタムHookから状態と関数を取得

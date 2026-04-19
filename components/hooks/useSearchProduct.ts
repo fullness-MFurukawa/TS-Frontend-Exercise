@@ -4,7 +4,7 @@ import { ISearchProductService } from "@/interfaces/ISearchProductService";
 import { Product } from "@/models/Product";
 import { useState } from "react";
 /**
- * 演習 6-2 データアクセスとサービスを実装する
+ * 演習 6-3 Reactコンポーネントを実装してUIを確認する
  * 商品検索のState(状態)と操作を提供するカスタムフック
  */
 export const useSearchProduct = () => {
